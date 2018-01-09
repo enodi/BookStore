@@ -1,0 +1,18 @@
+<div id="books-index">
+  <% @books.each_slice(4) do |book| %>
+    <div class="row">
+      <div class="col-md-3 col-sm-3">
+        <h3>Ruby On Rails Power</h3>
+        <%= image_tag('covers/1.jpg') %>
+        <%= link_to 'Read more', book_path(1), class:"btn btn-primary"%>
+      </div>
+      <% book.each do |book| %>
+        <div class="col-md-3 col-sm-3">
+          <h3><%= book.title %></h3>
+          <%= image_tag(book.coverpath) %>
+          <%= link_to 'Read more', book_path(book), class:"btn btn-primary"%>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
